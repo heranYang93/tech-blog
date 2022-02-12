@@ -32,3 +32,7 @@ router.get("/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.post("/", withAuth, async (req, res) => {});
+
+module.exports = router;

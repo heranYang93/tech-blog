@@ -1,6 +1,26 @@
 const router = require("express").Router();
 const { User } = require("../models");
 
+//log-in page
+router.get("/login", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("login");
+});
+
+//sign-up page
+router.get("/signup", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("signup");
+});
+
 router.post("/signup", async (req, res) => {
   try {
     //check email availability
@@ -26,17 +46,19 @@ router.post("/signup", async (req, res) => {
       });
     }
 
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    const userData = await (
+      await User.findOne({ where: { email: req.body.email } })
+    ).get({ plain: true });
 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.username = userData.username;
       req.session.logged_in = true;
+    });
 
-      res.json({
-        user: userData,
-        message: `Account created! You are now logged in as ${req.body.username}`,
-      });
+    res.json({
+      user: userData,
+      message: `Account created! You are now logged in as ${req.body.username}`,
     });
   } catch (err) {
     console.error("error from account creation");
