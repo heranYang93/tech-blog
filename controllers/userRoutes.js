@@ -3,7 +3,6 @@ const { User } = require("../models");
 
 router.post("/signup", async (req, res) => {
   try {
-    console.log("FROM SIGN-UP ROUTER");
     //check email availability
     const ce = await User.findOne({
       where: { email: req.body.email },
@@ -26,6 +25,19 @@ router.post("/signup", async (req, res) => {
         password: req.body.password,
       });
     }
+
+    const userData = await User.findOne({ where: { email: req.body.email } });
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.username = userData.username;
+      req.session.logged_in = true;
+
+      res.json({
+        user: userData,
+        message: `Account created! You are now logged in as ${req.body.username}`,
+      });
+    });
   } catch (err) {
     console.error("error from account creation");
   }
@@ -53,9 +65,13 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
+      req.session.username = userData.username;
       req.session.logged_in = true;
 
-      res.json({ user: userData, message: "You are now logged in!" });
+      res.json({
+        user: userData,
+        message: `You are now logged in as ${req.session.username}`,
+      });
     });
   } catch (err) {
     res.status(400).json(err);

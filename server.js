@@ -11,11 +11,11 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-//insert helpers in the obj
+//Helpers here if needed
 const hbs = exphbs.create({});
 
 const sess = {
-  secret: "hy",
+  secret: "Super secret secret",
   cookie: {},
   resave: false,
   saveUninitialized: true,

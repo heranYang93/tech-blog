@@ -1,10 +1,25 @@
 const router = require("express").Router();
-const { User } = require("../models");
+const { Post } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
   try {
-    res.render("homepage");
+    const findPosts = await Post.findAll({
+      include: [
+        {
+          model: user,
+          attributes: ["id", "username", "email", "password"],
+        },
+      ],
+    });
+    const postArr = findPosts.map((singlePost) => {
+      singlePost.get({ plain: true });
+    });
+    res.render("homepage", {
+      postArr,
+      logged_in: req.session.logged_in,
+      userName: req.session.username,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
