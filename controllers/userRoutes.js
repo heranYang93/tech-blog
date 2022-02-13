@@ -13,11 +13,6 @@ router.get("/login", (req, res) => {
 
 //sign-up page
 router.get("/signup", (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect("/");
-    return;
-  }
-
   res.render("signup");
 });
 
@@ -37,31 +32,21 @@ router.post("/signup", async (req, res) => {
       res.json({
         message: "Account already exist, please choose new email or user name",
       });
-      return;
     } else {
-      User.create({
+      const newUser = await User.create({
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
       });
+
+      const userData = await User.findOne({
+        where: { email: req.body.email },
+      }).get({ plain: true });
+
+      res.redirect("/login");
     }
-
-    const userData = await (
-      await User.findOne({ where: { email: req.body.email } })
-    ).get({ plain: true });
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.username = userData.username;
-      req.session.logged_in = true;
-    });
-
-    res.json({
-      user: userData,
-      message: `Account created! You are now logged in as ${req.body.username}`,
-    });
   } catch (err) {
-    console.error("error from account creation");
+    console.error(err.message);
   }
 });
 

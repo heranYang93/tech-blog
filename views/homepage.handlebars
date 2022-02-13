@@ -1,6 +1,8 @@
 <h2>FROM HOMEPAGE</h2>
-{{logged_in}}
-{{userName}}
+{{>general-userInfo}}
+
+{{>homePage-newPost}}
+
 {{#each postArr as |post|}}
-{{> singlePost}}
+{{>homePage-singlePost}}
 {{/each}}

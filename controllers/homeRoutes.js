@@ -4,16 +4,33 @@ const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
   try {
-    const findPosts = await Post.findAll({
+    const dbGetPost = await Post.findAll({
       include: [
         {
           model: User,
-          attributes: ["id", "username", "email", "password"],
+          attributes: ["id", "username"],
         },
       ],
+      // order: [["name", "ASC"]],
     });
-    const postArr = findPosts.map((singlePost) => {
-      singlePost.get({ plain: true });
+
+    const postArr = dbGetPost.map((singlePost) => {
+      const thisPostId = singlePost.id;
+      const thisPostTitle = singlePost.title;
+      const thisPostContent = singlePost.content;
+      const thisPostCreate = singlePost.createdAt;
+      const thisPostUpdate = singlePost.updatedAt;
+      const thisPostCreatorId = singlePost.user.dataValues.id;
+      const thisPostCreatorUsername = singlePost.user.dataValues.username;
+      return {
+        thisPostId,
+        thisPostTitle,
+        thisPostContent,
+        thisPostCreate,
+        thisPostUpdate,
+        thisPostCreatorId,
+        thisPostCreatorUsername,
+      };
     });
 
     res.render("homepage", {

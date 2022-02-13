@@ -1,7 +1,11 @@
 <h2>FROM COMMENT PAGE</h2>
 
-<section>Post title and etc. </section>
+{{>general-userInfo}}
 
-{{#each commentArr as |comment|}}
-{{> singleComment}}
+{{>commentPage-thisPost}}
+
+{{>commentPage-newComment}}
+
+{{#each commentData}}
+{{> commentPage-newComment}}
 {{/each}}
