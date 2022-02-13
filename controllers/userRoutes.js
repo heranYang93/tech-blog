@@ -38,13 +38,8 @@ router.post("/signup", async (req, res) => {
         email: req.body.email,
         password: req.body.password,
       });
-
-      const userData = await User.findOne({
-        where: { email: req.body.email },
-      }).get({ plain: true });
-
-      res.redirect("/login");
     }
+    res.redirect("/user/login");
   } catch (err) {
     console.error(err.message);
   }

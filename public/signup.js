@@ -1,6 +1,6 @@
 const signupRoute = "/user/signup";
 
-const signupFormHandler = async (event) => {
+const signUpHandler = async (event) => {
   event.preventDefault();
 
   const username = document.querySelector("#username-signup").value.trim();
@@ -15,7 +15,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/");
+      window.alert("User created successfully, please log-in");
     } else {
       alert("Failed to sign up.");
     }
@@ -24,4 +24,4 @@ const signupFormHandler = async (event) => {
 
 document
   .querySelector(".signup-form")
-  .addEventListener("submit", signupFormHandler);
+  .addEventListener("submit", signUpHandler);

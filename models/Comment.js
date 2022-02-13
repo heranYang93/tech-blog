@@ -19,10 +19,6 @@ Comment.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    last_update: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
     post_id: {
       type: DataTypes.INTEGER,
       references: {
