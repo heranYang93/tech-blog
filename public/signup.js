@@ -16,6 +16,7 @@ const signUpHandler = async (event) => {
 
     if (response.ok) {
       window.alert("User created successfully, please log-in");
+      window.location.replace("/user/login");
     } else {
       alert("Failed to sign up.");
     }

@@ -1,20 +1,17 @@
-const newCommentRoute = "/post/comment/";
-
-const loginFormHandler = async (event) => {
-  event.preventDefault();
+const commentHandler = async (evt) => {
+  evt.preventDefault();
 
   const commentTitle = document.querySelector("#commentTitle").value.trim();
-  const commentComment = document.querySelector("#commentContent").value.trim();
+  const commentContent = document.querySelector("#commentContent").value.trim();
 
-  if (email && password) {
-    const response = await fetch(loginRoute, {
+  if (commentTitle && commentContent) {
+    const response = await fetch("/post/comment", {
       method: "POST",
-      body: JSON.stringify({ commentTitle, commentComment }),
+      body: JSON.stringify({ commentTitle, commentContent }),
       headers: { "Content-Type": "application/json" },
     });
-
     if (response.ok) {
-      document.location.replace("/");
+      window.location.reload();
     } else {
       alert("Failed to post comment");
     }
@@ -23,4 +20,4 @@ const loginFormHandler = async (event) => {
 
 document
   .querySelector(".commentForm")
-  .addEventListener("submit", loginFormHandler);
+  .addEventListener("submit", commentHandler);

@@ -8,14 +8,7 @@ router.get("/:id", withAuth, async (req, res) => {
       include: [
         {
           model: Comment,
-          attributes: [
-            "id",
-            "title",
-            "content",
-            "last_update",
-            "created_at",
-            "updated_at",
-          ],
+          attributes: ["id", "title", "content", "created_at", "updated_at"],
         },
       ],
     });
@@ -41,7 +34,9 @@ router.get("/:id", withAuth, async (req, res) => {
       };
     });
 
-    console.log(req.session);
+    req.session.save(() => {
+      req.session.visitedPost = postData.id;
+    });
 
     const commentPage = res.render("commentPage", {
       postData,
@@ -56,13 +51,20 @@ router.get("/:id", withAuth, async (req, res) => {
   }
 });
 
-//new post
-router.post("/", withAuth, async (req, res) => {});
-
 //new comment
-router.post("/comment/", withAuth, async (req, res) => {
-  commentorId = req.session.user_id;
-  commentorUsername = req.session.username;
+router.post("/comment", withAuth, async (req, res) => {
+  try {
+    console.log("In comment route");
+    const addComment = await Comment.create({
+      title: req.body.commentTitle,
+      content: req.body.commentContent,
+      post_id: req.session.visitedPost,
+      user_id: req.session.user_id,
+    });
+    res.redirect("/post");
+  } catch (err) {
+    console.error(err.message);
+  }
 });
 
 module.exports = router;
