@@ -52,16 +52,15 @@ router.get("/:id", withAuth, async (req, res) => {
 });
 
 //new comment
-router.post("/comment", withAuth, async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
-    console.log("In comment route");
-    const addComment = await Comment.create({
+    const newComment = await Comment.create({
       title: req.body.commentTitle,
       content: req.body.commentContent,
       post_id: req.session.visitedPost,
       user_id: req.session.user_id,
     });
-    res.redirect("/post");
+    res.status(200).json(newComment);
   } catch (err) {
     console.error(err.message);
   }
