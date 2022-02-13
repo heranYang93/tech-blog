@@ -5,3 +5,9 @@
   Who am I:
   {{userName}}
 </div>
+{{#if logged_in}}
+  <button class="logout">Logout</button>
+  <script src="/logout.js"></script>
+{{else}}
+  <a href="/user/login">Login</a>
+{{/if}}
