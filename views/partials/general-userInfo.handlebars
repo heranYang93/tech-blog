@@ -6,8 +6,10 @@
   {{userName}}
 </div>
 {{#if logged_in}}
+  <a href="/dashboard"><button>My Dashboard</button></a>
   <button class="logout">Logout</button>
   <script src="/logout.js"></script>
 {{else}}
-  <a href="/user/login">Login</a>
+  <a href="/user/login"><button>Login</button></a>
+
 {{/if}}

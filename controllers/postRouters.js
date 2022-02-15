@@ -38,7 +38,7 @@ router.get("/:id", withAuth, async (req, res) => {
       req.session.visitedPost = postData.id;
     });
 
-    const commentPage = res.render("commentPage", {
+    const commentPage = res.render("dashboardPage", {
       postData,
       commentData,
       logged_in: req.session.logged_in,
@@ -61,6 +61,30 @@ router.post("/", withAuth, async (req, res) => {
       user_id: req.session.user_id,
     });
     res.status(200).json(newComment);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+router.post("/mod/:id", withAuth, async (req, res) => {
+  try {
+    const modifyPost = await Post.update(
+      {
+        title: req.body.title,
+        content: req.body.content,
+      },
+      { where: { id: req.params.id } }
+    );
+    res.status(200).json(modifyPost);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+router.delete("/del/:id", withAuth, async (req, res) => {
+  try {
+    const destroyPost = await Post.destroy({ where: { id: req.params.id } });
+    res.status(200).json(destroyPost);
   } catch (err) {
     console.error(err.message);
   }

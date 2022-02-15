@@ -1,0 +1,14 @@
+<h2>From dashboard page</h2>
+
+{{>dashboardPage-newPost}}
+
+{{#each postArr as |post|}}
+{{>dashboardPage-singlePost}}
+{{/each}}
+
+{{logged_in}}
+{{userId}}
+{{userName}}
+
+<script src="/newPost.js"></script>
+<script src="postDeleteHandler.js"></script>
