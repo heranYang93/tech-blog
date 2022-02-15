@@ -1,7 +1,7 @@
 const newPostHandler = async (evt) => {
   evt.preventDefault();
-  const postTitle = document.querySelector("#newPostTitle").value.trim();
-  const postContent = document.querySelector("#newPostContent").value.trim();
+  const postTitle = document.getElementById("newPostTitle").value.trim();
+  const postContent = document.getElementById("newPostContent").value.trim();
 
   if (postTitle && postContent) {
     const response = await fetch("/", {

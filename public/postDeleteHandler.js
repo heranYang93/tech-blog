@@ -13,5 +13,5 @@ const postDeleteHandler = async (event) => {
 
 const deleteBtn = document.getElementById("deletePost");
 const deletePostId = deleteBtn.value;
-const postDeleteRoute = `post/del/${deletePostId}`;
+const postDeleteRoute = `/post/del/${deletePostId}`;
 deleteBtn.addEventListener("click", postDeleteHandler);

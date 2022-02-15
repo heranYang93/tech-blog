@@ -38,7 +38,7 @@ router.get("/:id", withAuth, async (req, res) => {
       req.session.visitedPost = postData.id;
     });
 
-    const commentPage = res.render("dashboardPage", {
+    const commentPage = res.render("commentPage", {
       postData,
       commentData,
       logged_in: req.session.logged_in,
