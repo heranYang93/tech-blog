@@ -70,8 +70,8 @@ router.post("/mod/:id", withAuth, async (req, res) => {
   try {
     const modifyPost = await Post.update(
       {
-        title: req.body.title,
-        content: req.body.content,
+        title: req.body.postReviseTitle,
+        content: req.body.postReviseContent,
       },
       { where: { id: req.params.id } }
     );

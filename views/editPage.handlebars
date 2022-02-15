@@ -1,0 +1,38 @@
+<h2>From edit page</h2>
+
+{{thisPostContent}}
+
+<div class="editePost-card">
+  <h2 class="page-title">Revise your post</h2>
+  <form class="editPostForm">
+    <div class="form-group">
+      <label for="revisePostTitle">Revise post title</label>
+      <input
+        class="form-input"
+        type="text"
+        id="postReviseTitle"
+        value="{{thisPostContent.title}}"
+      />
+    </div>
+    <div class="form-group">
+      <label for="revisePostContent">Revise post content</label>
+      <input
+        class="form-input"
+        type="text"
+        id="postReviseContent"
+        value="{{thisPostContent.content}}"
+      />
+    </div>
+    <div class="form-group">
+      <button
+        id="revisePostBtn"
+        class="btn btn-primary"
+        type="submit"
+        value="{{thisPostContent.id}}"
+      >
+        Finish revision</button>
+    </div>
+  </form>
+</div>
+
+<script src="/editHandler.js"></script>

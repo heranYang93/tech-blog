@@ -45,3 +45,15 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 module.exports = router;
+
+//open an edit page
+router.get("/:id", withAuth, async (req, res) => {
+  try {
+    console.log("in Route", req.params.id);
+    const dbFindThisPost = await Post.findByPk(req.params.id);
+    const thisPostContent = dbFindThisPost.get({ plain: true });
+    res.render("editPage", { thisPostContent });
+  } catch (err) {
+    console.log(err.message);
+  }
+});
