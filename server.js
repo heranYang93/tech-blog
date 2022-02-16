@@ -3,7 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 const routes = require("./controllers");
-// const helpers = require("./utils/helpers");
+const helpers = require("./utils/helpers");
 const sessionLength = 10 * 60 * 1000;
 
 const sequelize = require("./config/connection");
@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 //Helpers here if needed
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: "default",
