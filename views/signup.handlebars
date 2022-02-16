@@ -1,34 +1,73 @@
-<h3>From sign-up handlebars</h3>
+<form class="signup-form">
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label for="email-signup" class="label">Username</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <input
+            class="input"
+            type="username"
+            placeholder="Choose a username"
+            id="username-signup"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="login-card">
-  <h2 class="page-title">Signup</h2>
-  <form class="form signup-form">
-    <div class="form-group">
-      <label for="username-signup">Username:</label>
-      <input
-        class="form-input"
-        type="text"
-        id="username-signup"
-        value="Select your username"
-      />
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Email</label>
     </div>
-    <div class="form-group">
-      <label for="email-signup">Email:</label>
-      <input
-        class="form-input"
-        type="text"
-        id="email-signup"
-        value="Enter your email"
-      />
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <input
+            class="input"
+            type="email"
+            placeholder="john.doe@gmail.com"
+            id="email-signup"
+          ></input>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="password-signup">Password:</label>
-      <input class="form-input" type="password" id="password-signup" value="" />
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Password</label>
     </div>
-    <div class="form-group">
-      <button class="btn btn-primary" type="submit">signup</button>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <input
+            class="input"
+            type="password"
+            placeholder="P@SSW0RD"
+            id="password-signup"
+          ></input>
+        </div>
+      </div>
     </div>
-  </form>
-</div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label">
+      <!-- Left empty for spacing -->
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <button class="button is-success" type="submit">
+            Sign up
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
 
 <script src="/signup.js"></script>

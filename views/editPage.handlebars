@@ -1,34 +1,59 @@
-<div class="editePost-card">
-  <h2 class="page-title">Revise your post</h2>
-  <form class="editPostForm">
-    <div class="form-group">
-      <label for="revisePostTitle">Revise post title</label>
-      <input
-        class="form-input"
-        type="text"
-        id="postReviseTitle"
-        value="{{thisPostContent.title}}"
-      />
+<form class="editPostForm">
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label for="email-signup" class="label">Edit title</label>
     </div>
-    <div class="form-group">
-      <label for="revisePostContent">Revise post content</label>
-      <input
-        class="form-input"
-        type="text"
-        id="postReviseContent"
-        value="{{thisPostContent.content}}"
-      />
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            value="{{thisPostContent.title}}"
+            id="postReviseTitle"
+          /></input>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <button
-        id="revisePostBtn"
-        class="btn btn-primary"
-        type="submit"
-        value="{{thisPostContent.id}}"
-      >
-        Finish revision</button>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Edit post</label>
     </div>
-  </form>
-</div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            value="{{thisPostContent.content}}"
+            id="postReviseContent"
+          ></input>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label">
+      <!-- Left empty for spacing -->
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <button 
+          class="button is-success" 
+          id="revisePostBtn" 
+          value="{{thisPostContent.id}}"
+          type="submit">
+            Finish editing
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
 
 <script src="/editHandler.js"></script>
