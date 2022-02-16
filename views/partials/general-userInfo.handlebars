@@ -1,15 +1,18 @@
-<div>Am I logged in:
-  {{logged_in}}
-</div>
-<div>
-  Who am I:
-  {{userName}}
-</div>
 {{#if logged_in}}
-  <a href="/dashboard"><button>My Dashboard</button></a>
-  <button class="logout">Logout</button>
-  <script src="/logout.js"></script>
+  <div> Welcome {{userName}}!</div>
+  <a href="/dashboard"><button class="dashboardBtn button is-light">My Dashboard</button></a>
+  <button class="logout button is-light">Logout</button>
+
 {{else}}
-  <a href="/user/login"><button>Login</button></a>
+  <div class="loginLine">
+    <p>
+      Welcome! Log in to share your thoughts!
+    </p>
+    <a id="loginBtn" class="button is-light" href="/user/login">
+      Login
+    </a>
+  </div>
 
 {{/if}}
+
+<script src="/logout.js"></script>

@@ -1,4 +1,31 @@
-<section class="card">
+<section class="box">
+  <header class="box-header">
+    {{title}}
+  </header>
+
+  <div class="box-content">
+
+    <div class="box-post-content">
+      Post content:
+      {{content}}
+    </div>
+
+    <div class="box-minorContent">
+      <div class="time">last update: {{updated_at}}</div>
+      <a href="/dashboard/{{id}}"><button
+          class="button is-rounded"
+          id="editPost"
+        >Edit post</button></a>
+      <button
+        class="button is-rounded"
+        id="deletePost"
+        value="{{id}}"
+      >Delete</button>
+    </div>
+  </div>
+</section>
+
+{{!-- <section class="card">
   <h3>From singlePost</h3>
 
   <div class="card-body">
@@ -10,4 +37,4 @@
     <a href="/dashboard/{{id}}"><button id="editPost">Edit</button></a>
     <button id="deletePost" value="{{id}}">Delete</button>
   </div>
-</section>
+</section> --}}

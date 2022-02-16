@@ -1,16 +1,51 @@
-<div class="post-card">
-  <h2 class="page-title">Enter a new post</h2>
-  <form class="newPostForm">
-    <div class="form-group">
-      <label for="commentTitle">Title</label>
-      <input class="form-input" type="text" id="newPostTitle" value="" />
+<form class="newPostForm">
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label for="postTitle" class="label">Subject</label>
     </div>
-    <div class="form-group">
-      <label for="commentContent">Post</label>
-      <input class="form-input" type="text" id="newPostContent" value="" />
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            placeholder="add a subject to your post"
+            id="newPostTitle"
+          />
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      <button class="btn btn-primary" type="submit">Post new topic </button>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Post</label>
     </div>
-  </form>
-</div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <textarea
+            class="textarea"
+            placeholder="What do you want to post"
+            id="newPostContent"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label">
+      <!-- Left empty for spacing -->
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <button class="button is-primary" type="submit">
+            Post it!
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

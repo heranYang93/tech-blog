@@ -1,4 +1,4 @@
-<div class="comment-card">
+{{! <div class="comment-card">
   <h2 class="page-title">Enter a new comment</h2>
   <form class="commentForm">
     <div class="form-group">
@@ -13,4 +13,59 @@
       <button class="btn btn-primary" type="submit">Submit Comment</button>
     </div>
   </form>
-</div>
+</div> }}
+
+<form class="commentForm">
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label for="postTitle" class="label">Title</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <input
+            class="input"
+            type="text"
+            placeholder="Add a title for your comment"
+            id="commentTitle"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Comment</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <textarea
+            class="textarea"
+            placeholder="Write your comment"
+            id="commentContent"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label">
+      <!-- Left empty for spacing -->
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <button class="button is-primary" type="submit">
+            Submit Comment
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
+
+<script src="/newComment.js"></script>

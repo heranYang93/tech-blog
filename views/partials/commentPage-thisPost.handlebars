@@ -1,4 +1,4 @@
-<section>Post title and etc. </section>
+{{!-- <section>Post title and etc. </section>
 {{postData.id}}
 <div>This Post Title: {{postData.title}}</div>
 <div>This Post Content: {{postData.content}}</div>
@@ -7,4 +7,18 @@
 <div>Am I logged in: {{logged_in}}</div>
 <br />
 <div>My current user Id: {{userId}}</div>
-<div>My current username: {{userName}}</div>
+<div>My current username: {{userName}}</div> --}}
+
+<section class="box">
+  <header class="box-header">
+    {{postData.title}}
+  </header>
+
+  <div class="box-content">
+
+    <div class="box-post-content">
+      Post content:
+      {{postData.content}}
+    </div>
+  </div>
+</section>

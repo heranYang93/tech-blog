@@ -1,4 +1,6 @@
-<h2>From dashboard page</h2>
+<div class="box">
+    Welcome to the dashboard {{userName}}!
+</div>
 
 {{>dashboardPage-newPost}}
 
@@ -6,9 +8,9 @@
 {{>dashboardPage-singlePost}}
 {{/each}}
 
-{{logged_in}}
-{{userId}}
-{{userName}}
+{{!-- {{logged_in}}
+{{userId}} --}}
+
 
 <script src="newPost.js"></script>
 <script src="postDeleteHandler.js"></script>

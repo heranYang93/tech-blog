@@ -1,10 +1,27 @@
-<section class="card">
+{{!-- <section class="card">
   <div class="card-body">
     <h5>this comment title: {{thisCommentTitle}}</h5>
-    {{!-- {{{>general-deletable}}} --}}
     <p>this comment content: {{thisCommentContent}}</p>
     <p>this comment update: {{thisCommentUpdate}}</p>
     <p>this comment creator id: {{thisCommentUserId}}</p>
     <p>this comment creator name: {{thisCommentUsername}}</p>
+  </div>
+</section> --}}
+
+<section class="box">
+  <header class="box-header">
+    {{thisCommentTitle}}
+  </header>
+
+  <div class="box-content">
+
+    <div class="box-post-content">
+      {{thisCommentContent}}
+    </div>
+
+    <div class="box-minorContent">
+      <div class="time">last update: {{thisCommentUpdate}}</div>
+      <div>post by: {{thisCommentUsername}}</div>
+    </div>
   </div>
 </section>

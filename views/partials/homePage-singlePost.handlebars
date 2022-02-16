@@ -1,12 +1,26 @@
 <section class="card">
-  <h3>From singlePost</h3>
-  <a href="/post/{{thisPostId}}">{{thisPostTitle}}</a>
+  <header class="card-header">
+    <a
+      class="card-header-title"
+      href="/post/{{thisPostId}}"
+    >{{thisPostTitle}}</a>
+  </header>
 
-  <div class="card-body">
-    <p>this post content: {{thisPostContent}}</p>
+  <div class="card-content">
+    <div class="content">
+      {{thisPostContent}}
+    </div>
+    <div class="minorContent">
+      <div class="time">last update: {{thisPostUpdate}}</div>
+      <div class="username">updated by: {{thisPostCreatorUsername}}</div>
+    </div>
+
+  </div>
+  {{!-- <div class="card-body">
+    <p>this post content: </p>
     <p>this post create: {{thisPostCreate}}</p>
     <p>this post update: {{thisPostUpdate}}</p>
     <p>this post creator id: {{thisPostCreatorId}}</p>
     <p>this post creator name: {{thisPostCreatorUsername}}</p>
-  </div>
+  </div> --}}
 </section>
