@@ -11,7 +11,10 @@ router.get("/", async (req, res) => {
           attributes: ["id", "username"],
         },
       ],
-      // order: [["name", "ASC"]],
+      order: [
+        ["updated_at", "DESC"],
+        ["created_at", "DESC"],
+      ],
     });
 
     const postArr = dbGetPost.map((singlePost) => {

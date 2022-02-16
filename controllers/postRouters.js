@@ -9,7 +9,15 @@ router.get("/:id", withAuth, async (req, res) => {
         {
           model: Comment,
           attributes: ["id", "title", "content", "created_at", "updated_at"],
+          order: [
+            ["updated_at", "DESC"],
+            ["created_at", "DESC"],
+          ],
         },
+      ],
+      order: [
+        ["updated_at", "DESC"],
+        ["created_at", "DESC"],
       ],
     });
     const postData = dbSinglePost.get({ plain: true });
