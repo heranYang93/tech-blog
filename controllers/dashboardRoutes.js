@@ -7,10 +7,7 @@ router.get("/", withAuth, async (req, res) => {
   try {
     const dbFindRelatedPost = await Post.findAll({
       where: { user_id: currentUserId },
-      order: [
-        ["updated_at", "DESC"],
-        ["created_at", "DESC"],
-      ],
+      order: [["created_at", "DESC"]],
     });
     const postArr = dbFindRelatedPost.map((singlePostData) => {
       return {
