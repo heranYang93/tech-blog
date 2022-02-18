@@ -35,7 +35,7 @@ router.get("/:id", withAuth, async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.visitedPost = postData.id;
+      req.session.visitedPost = req.params.id;
     });
 
     const commentPage = res.render("commentPage", {
@@ -47,6 +47,7 @@ router.get("/:id", withAuth, async (req, res) => {
       viewingPostId: postData.id,
     });
   } catch (err) {
+    console.log(err.message);
     res.status(500).json(err.message);
   }
 });
@@ -54,10 +55,12 @@ router.get("/:id", withAuth, async (req, res) => {
 //new comment
 router.post("/", withAuth, async (req, res) => {
   try {
+    console.log(req.body, req.session);
+
     const newComment = await Comment.create({
       title: req.body.commentTitle,
       content: req.body.commentContent,
-      post_id: req.session.visitedPost,
+      post_id: req.body.viewingPostId,
       user_id: req.session.user_id,
     });
     res.status(200).json(newComment);
