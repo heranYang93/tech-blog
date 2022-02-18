@@ -5,7 +5,7 @@
     This is a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well.
     The app is deploy it to Heroku and will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
     <br />
-    <a href="https://github.com/heranYang93/e-commerce-back-end/blob/main/Demo/demo_categories.mp4">View Demo Part1</a>
+    <a href="https://github.com/heranYang93/tech-blog/blob/main/__demo__/test.mov">View Demo Part1</a>
     ·
     <a href="https://github.com/heranyang93/tech-blog/issues">Report Bug</a>
     ·
@@ -38,7 +38,7 @@
 
 ## About The Project
 
-![Product Screenshoot](./Demo/result.png)
+![Product Screenshoot](./__demo__/screenshot.png)
 
 Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
 
